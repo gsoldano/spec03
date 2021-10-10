@@ -30,7 +30,7 @@ public class ItemRepository {
 
 	public void insertItem(Item item) {
 		entityManager.getTransaction().begin();
-		item.setId(UUID.randomUUID().toString().replace("-", ""));
+		item.setId(UUID.randomUUID().toString().replace("-", "").substring(0, 16));
 		entityManager.persist(item);
 		entityManager.getTransaction().commit();
 	}
